@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+
+/data
+/results/model.h5
+/results/history.pickle
