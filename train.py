@@ -32,7 +32,7 @@ def computational_graph(class_size):
         return Activation('relu')
 
     def conv(filter_size, kernel_size, stride_size=1):
-        return Conv2D(filter_size, kernel_size, strides=stride_size, padding='same', kernel_initializer='he_normal', kernel_regularizer=l2(0.0005), use_bias=False)
+        return Conv2D(filter_size, kernel_size, strides=stride_size, padding='same', kernel_initializer='he_normal', kernel_regularizer=l2(0.0005), use_bias=False)  # ReLUするならウェイトをHe初期化するのが基本らしい。あと、Kerasにはweight decayがなかったのでkernel_regularizerで代替したのたけど、これで正しい？
 
     def add():
         return Add()
@@ -41,7 +41,7 @@ def computational_graph(class_size):
         return GlobalAveragePooling2D()
 
     def dense(unit_size, activation):
-        return Dense(unit_size, activation=activation, kernel_regularizer=l2(0.0005))
+        return Dense(unit_size, activation=activation, kernel_regularizer=l2(0.0005))  # Kerasにはweight decayがなかったのでkernel_regularizerで代替したのたけど、これで正しい？
 
     # Define WRN-28-10
 
